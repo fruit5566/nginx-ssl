@@ -7,7 +7,7 @@
 * 返回华为云控制台，域名解析，新建TXT域名验证 记录值记得加 ""  ![](./image/7.png)
 * 等待15分钟（重点），证书系统域名验证自动通过 下载证书 输入订单密码 证书格式选nginx [图8](./image/8.png)
 
-* nginx 配置 ssl ，443开启 gzip压缩 ，80端口配置443跳转。顺便做下404跳转 ![](./image/9.png) ![](./image/10.png)
+* nginx 配置 ssl ，443开启 gzip压缩(生产环境 静态资源上CDN) ，80端口配置443跳转。顺便做下404跳转 ![](./image/9.png) ![](./image/10.png)
 
 ```
 gzip on;
@@ -28,6 +28,8 @@ rewrite ^(.*) https://$host$1 permanent;
 error_page 可以做主页跳转，    
 error_page 404 index.html 此页面http状态码是404  
 error_page = index.html 此页面是302跳转。生产可用此配置。 
-``` 
+```
+
+
 
 
